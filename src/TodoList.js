@@ -12,7 +12,9 @@ class TodoList extends Component {
     return (
       <Fragment>
         <div>
-          <input 
+          <label htmlFor="insertArea">输入内容</label>
+          <input
+            id="insertArea"
             value={this.state.inputValue}
             onChange={this.handleInputChange.bind(this)}
           />
@@ -25,8 +27,8 @@ class TodoList extends Component {
               <li 
                 key={index} 
                 onClick={this.handleItemDelete.bind(this, index)}
+                dangerouslySetInnerHTML={{__html: item}}
               >
-                {item}
               </li>
               )
             })
