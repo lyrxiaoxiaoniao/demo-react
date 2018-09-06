@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 class TodoItem extends Component {
   constructor(props){
     super(props)
+    // 当父组件的render函数被执行时，它的子组件的render函数都将重新执行
     // 复杂组件提高性能 声明时绑定this 避免函数声明影响组件重绘
     this.handleClick = this.handleClick.bind(this)
   }
