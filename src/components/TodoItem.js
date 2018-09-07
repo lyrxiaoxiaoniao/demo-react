@@ -6,7 +6,7 @@ class TodoItem extends Component {
   constructor(props){
     super(props)
     // 当父组件的render函数被执行时，它的子组件的render函数都将重新执行
-    // 复杂组件提高性能 声明时绑定this 避免函数声明影响组件重绘
+    // 再构造函数函数中声明函数 为复杂组件提高性能 声明时绑定this 避免函数声明影响组件重绘
     this.handleClick = this.handleClick.bind(this)
   }
   render() {

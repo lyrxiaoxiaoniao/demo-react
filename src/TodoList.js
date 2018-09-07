@@ -8,6 +8,7 @@ class TodoList extends Component {
       inputValue: '',
       list: []
     }
+    // 再构造函数函数中声明函数 为复杂组件提高性能 声明时绑定this 避免函数声明影响组件重绘
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItemDelete = this.handleItemDelete.bind(this)
@@ -42,11 +43,8 @@ class TodoList extends Component {
     })
   }
   handleInputChange(e) {
-    // this.setState({
-    //   inputValue: e.target.value
-    // })
     const value = e.target.value
-    // 异步函数
+    // setState 异步函数 先声明value赋值然后使用
     this.setState( () => {
       return {inputValue: value}
     })
@@ -60,8 +58,6 @@ class TodoList extends Component {
     })
   }
   handleItemDelete(index) {
-    // const list = [...this.state.list]
-    // list.splice(index, 1)
     this.setState((prevState) => {
       const list = [...prevState.list]
       list.splice(index,1)
