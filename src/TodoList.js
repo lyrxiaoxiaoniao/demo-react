@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import TodoItem from './components/TodoItem';
-import { Input, Button } from 'antd';
+// import TodoItem from './components/TodoItem';
+import { Input, Button, List } from 'antd';
 const Search = Input.Search;
 class TodoList extends Component {
   constructor(props) {
@@ -8,24 +8,17 @@ class TodoList extends Component {
     // 当组件的state或props发生改变的时候，render函数就会重新执行
     this.state = {
       inputValue: '',
-      list: []
+      list: [1,2]
     };
     // 再构造函数函数中声明函数 为复杂组件提高性能 声明时绑定this 避免函数声明影响组件重绘
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
-    this.handleItemDelete = this.handleItemDelete.bind(this);
+    // this.handleItemDelete = this.handleItemDelete.bind(this);
   }
   render() {
     return (
       <Fragment>
         <div>
-          <label htmlFor="insertArea">输入内容</label>
-          <Input
-            id="insertArea"
-            value={this.state.inputValue}
-            onChange={this.handleInputChange}
-          />
-          <Button type="primary" onClick={this.handleBtnClick}>提交</Button>
           <Search
             id="insertArea"
             placeholder="输入内容"
@@ -36,21 +29,13 @@ class TodoList extends Component {
             onSearch={this.handleBtnClick}
           />
         </div>
-        <ul>{this.getTodoItem()}</ul>
+        <List
+          bordered
+          dataSource={this.state.list}
+          renderItem={(item, index) => <List.Item onClick={this.handleItemDelete.bind(this, index)}>{item}</List.Item>}
+        />
       </Fragment>
     );
-  }
-  getTodoItem() {
-    return this.state.list.map((item, index) => {
-      return (
-        <TodoItem
-          deleteItem={this.handleItemDelete}
-          item={item}
-          index={index}
-          key={index}
-        />
-      );
-    });
   }
   handleInputChange(e) {
     const value = e.target.value;
