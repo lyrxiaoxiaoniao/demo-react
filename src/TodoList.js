@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import TodoItem from './components/TodoItem';
-import { Input  } from 'antd'
+import { Input, Button } from 'antd';
 const Search = Input.Search;
 class TodoList extends Component {
   constructor(props) {
@@ -20,11 +20,12 @@ class TodoList extends Component {
       <Fragment>
         <div>
           <label htmlFor="insertArea">输入内容</label>
-          {/* <Input
+          <Input
             id="insertArea"
             value={this.state.inputValue}
             onChange={this.handleInputChange}
-          /> */}
+          />
+          <Button type="primary" onClick={this.handleBtnClick}>提交</Button>
           <Search
             id="insertArea"
             placeholder="输入内容"
@@ -34,7 +35,6 @@ class TodoList extends Component {
             onChange={this.handleInputChange}
             onSearch={this.handleBtnClick}
           />
-          {/* <Button type="primary" onClick={this.handleBtnClick}>提交</Button> */}
         </div>
         <ul>{this.getTodoItem()}</ul>
       </Fragment>
