@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-// import TodoItem from './components/TodoItem';
-import { Input, Button, List } from 'antd';
+import { Input,  List } from 'antd';
+import { connect } from 'react-redux';
+import { getTitle } from './store/actions'
 const Search = Input.Search;
 class TodoList extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class TodoList extends Component {
   render() {
     return (
       <Fragment>
+        <div onClick={this.props.onGetTitle.bind(this,'嘻嘻')}>{this.props.title}</div>
         <div>
           <Search
             id="insertArea"
@@ -60,5 +62,16 @@ class TodoList extends Component {
     });
   }
 }
-
-export default TodoList;
+const mapStateToProps = (state) => {
+  return {
+    title: state.title
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onGetTitle: (title) => {
+      dispatch(getTitle(title))
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
