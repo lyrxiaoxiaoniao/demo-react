@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Input,  List } from 'antd';
 import { connect } from 'react-redux';
-import { getTitle } from './store/actions'
+import { getTitle } from './store/actions';
+import TodoTitle from './components/TodoTitle';
 const Search = Input.Search;
 class TodoList extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class TodoList extends Component {
   render() {
     return (
       <Fragment>
+        <TodoTitle title={this.props.title}></TodoTitle>
         <div onClick={this.props.onGetTitle.bind(this,'嘻嘻')}>{this.props.title}</div>
         <div>
           <Search

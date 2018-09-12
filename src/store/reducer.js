@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes'
 
-const todoReducer = (state={ title: '测试'}, action) => {
+const todoReducer = (state={}, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_TITLE:
       return { ...state,

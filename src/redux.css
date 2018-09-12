@@ -1,0 +1,12 @@
+.app{
+  width: 600px;
+  margin: 50px auto;
+}
+.top {
+  width: 450px;
+  margin-right: 10px;
+}
+.toplist {
+  width: 450px;
+  margin-top: 10px;
+}
