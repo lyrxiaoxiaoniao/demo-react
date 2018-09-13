@@ -10,7 +10,7 @@ import TodoListRedux from './TodoListRedux';
 // https协议的服务器上
 // import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(titleReducer)
+const store = createStore(titleReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 ReactDOM.render(
   <Provider store={store}>
     <TodoListRedux />
