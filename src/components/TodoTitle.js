@@ -1,8 +1,10 @@
-import React from 'react'
-
-const TodoTitle = (props) => {
+import React from 'react';
+const TodoTitle = props => {
   return (
-    <h1>{props.title}</h1>
-  )
-}
-export default TodoTitle
+    <div>
+      <h1>{props.title}</h1>
+    </div>
+  );
+};
+
+export default TodoTitle;

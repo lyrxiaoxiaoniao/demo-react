@@ -2,13 +2,13 @@ import * as actionTypes from './actionTypes'
 const defaultState = {
   inputValue: '',
   list: [],
-  title: ''
+  title: 'ceshi'
 }
 const todoReducer = (state = defaultState, action) => {
   const newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
     case actionTypes.CHANGE_TITLE:
-      return { ...state,
+      return { ...newState,
         title: action.title
       }
     case actionTypes.CHANGE_INPUTVALUE:
@@ -16,15 +16,13 @@ const todoReducer = (state = defaultState, action) => {
         inputValue: action.inputValue
       }
     case actionTypes.HANDLE_BTN_CLICK:
-      // const newState = JSON.parse(JSON.stringify(state))
       newState.list.push(newState.inputValue)
       return { ...newState,
         inputValue: ''
       }
     case actionTypes.HANDLE_CLICK_DELETE:
       newState.list.splice(action.index, 1)
-      return { ...newState
-      }
+      return { ...newState }
     default:
       return state
   }

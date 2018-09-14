@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Input,  List, Button } from 'antd';
 import { connect } from 'react-redux';
-import { getTitle } from './store/actions';
 import TodoTitle from './components/TodoTitle';
 import * as actionTypes from './store/actionTypes';
 import './redux.css'
@@ -36,9 +35,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetTitle: (title) => {
-      dispatch(getTitle(title))
-    },
     onChangeValue: (e) => {
       const value = e.target.value
       dispatch({type: actionTypes.CHANGE_INPUTVALUE, inputValue: value})
